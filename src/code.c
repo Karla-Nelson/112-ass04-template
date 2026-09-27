@@ -219,7 +219,20 @@ int my_isalnum(char c)
 
 int my_strcmp(char a[], char b[])
 {
-    return 0;
+    if (a < b)
+        {
+            return -1;
+        }
+
+    if (a == b)
+        {
+            return 0;
+        }
+           
+        else
+        {
+            return 1;
+        }
 }
 
 
@@ -237,7 +250,24 @@ int my_strcmp(char a[], char b[])
 
 int my_strchr(char s[], char c)
 {
-    return 0;
+    int i = 0;
+
+    loop:
+        if (s[i] == c)
+        {
+            return i;
+        }
+
+        if (s[i] == NULL)
+        {
+            return -1;
+        }
+           
+        else
+        {
+            i++;
+            goto loop;
+        }
 }
 
 
@@ -254,7 +284,28 @@ int my_strchr(char s[], char c)
 
 int my_pow(int a, int b)
 {
-    return 0;
+    int i = 0;
+    i++;
+    int exp = a;
+
+    loop:
+
+        if (b == 0 && a != 0)
+        {
+            return 1;
+        }
+
+        if (i == b)
+        {
+            return a;
+        }
+
+        else
+        {
+            a = a * exp;
+            i++;
+            goto loop;
+        }
 }
 
 
@@ -271,7 +322,28 @@ int my_pow(int a, int b)
 
 double my_pow_double(double a, int b)
 {
-    return 0.0;
+    int i = 0;
+    i++;
+    double exp = a;
+
+    loop:
+
+        if (b == 0 && a != 0)
+        {
+            return 1;
+        }
+
+        if (i == b)
+        {
+            return a;
+        }
+
+        else
+        {
+            a = a * exp;
+            i++;
+            goto loop;
+        }
 }
 
 
@@ -292,8 +364,22 @@ double my_pow_double(double a, int b)
 
 char * format_my_isupper(char dest[], char c, int r)
 {
+    char t = "true";
+    char f = "false";
+
     clear_string(dest, 64);
-    return dest;
+    if (c <= 90 && c >= 65)
+        {
+            dest = printf("isupper('%c') = %s\n", c, "true");
+            return dest;
+        }
+           
+        else
+        {
+            dest = printf("isupper('%c') = %s\n", c, "false");
+            return dest;
+        }
+    
 }
 
 
@@ -309,8 +395,21 @@ char * format_my_isupper(char dest[], char c, int r)
 
 char * format_my_isalpha(char dest[], char c, int r)
 {
+    char t = "true";
+    char f = "false";
+
     clear_string(dest, 64);
-    return dest;
+    if (c <= 90 && c >= 65 || c <= 122 && c >= 97)
+        {
+            dest = printf("isalpha('%c') = %s\n", c, "true");
+            return dest;
+        }
+           
+        else
+        {
+            dest = printf("isalpha('%c') = %s\n", c, "false");
+            return dest;
+        }
 }
 
 
@@ -326,8 +425,21 @@ char * format_my_isalpha(char dest[], char c, int r)
 
 char * format_my_isalnum(char dest[], char c, int r)
 {
+    char t = "true";
+    char f = "false";
+
     clear_string(dest, 64);
-    return dest;
+    if (my_isupper(c) == 1 || my_islower(c) == 1 || my_isdigit(c) == 1)
+        {
+            dest = printf("isalnum('%c') = %s\n", c, "true");
+            return dest;
+        }
+           
+        else
+        {
+            dest = printf("isalnum('%c') = %s\n", c, "false");
+            return dest;
+        }
 }
 
 
