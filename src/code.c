@@ -366,15 +366,15 @@ char * format_my_isupper(char dest[], char c, int r)
 {
 
     clear_string(dest, 64);
-    if (c <= 90 && c >= 65)
+    if (r = 1)
         {
-            snprintf(dest, r, "isupper('%c') = %s\n", c, "true");
+            snprintf(dest, 64, "isupper('%c') = %s\n", c, "true");
             return dest;
         }
            
         else
         {
-            snprintf(dest, r, "isupper('%c') = %s\n", c, "false");
+            snprintf(dest, 64, "isupper('%c') = %s\n", c, "false");
             return dest;
         }
     
@@ -394,15 +394,15 @@ char * format_my_isupper(char dest[], char c, int r)
 char * format_my_isalpha(char dest[], char c, int r)
 {
     clear_string(dest, 64);
-    if (c <= 90 && c >= 65 || c <= 122 && c >= 97)
+    if (r = 1)
         {
-            snprintf(dest, r, "isalpha('%c') = %s\n", c, "true");
+            snprintf(dest, 64, "isalpha('%c') = %s\n", c, "true");
             return dest;
         }
            
         else
         {
-            snprintf(dest, r, "isalpha('%c') = %s\n", c, "false");
+            snprintf(dest, 64, "isalpha('%c') = %s\n", c, "false");
             return dest;
         }
 }
@@ -421,15 +421,15 @@ char * format_my_isalpha(char dest[], char c, int r)
 char * format_my_isalnum(char dest[], char c, int r)
 {
     clear_string(dest, 64);
-    if (my_isupper(c) == 1 || my_islower(c) == 1 || my_isdigit(c) == 1)
+    if (r = 1)
         {
-            snprintf(dest, r, "isalnum('%c') = %s\n", c, "true");
+            snprintf(dest, 64, "isalnum('%c') = %s\n", c, "true");
             return dest;
         }
            
         else
         {
-            snprintf(dest, r, "isalnum('%c') = %s\n", c, "false");
+            snprintf(dest, 64, "isalnum('%c') = %s\n", c, "false");
             return dest;
         }
 }
