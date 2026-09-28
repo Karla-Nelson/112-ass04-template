@@ -41,9 +41,9 @@ int main(void)
     int r7 = my_strchr("hello", '3');
     int r8 = my_pow(2, 3);
     double r9 = my_pow_double(2.5, 9);
-    printf(format_my_isupper(buf, 'A', 64));
-    printf(format_my_isalpha(buf, '4', 64));
-    printf(format_my_isalnum(buf, '4', 64));
+    printf(format_my_isupper(buf, 'A', 1));
+    printf(format_my_isalpha(buf, '4', 0));
+    printf(format_my_isalnum(buf, '4', 1));
     printf(format_my_strcmp(buf, r6));
     printf(format_my_strchr(buf, r7));
     printf(format_my_pow(buf, r8));
