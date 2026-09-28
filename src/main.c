@@ -25,7 +25,7 @@ int main(void)
 {
     char buf[64]; 
     
-    //clear_string(buf, 64);
+    //clear_string(buf, 64); 
 
 
 
