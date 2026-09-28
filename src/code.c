@@ -364,19 +364,17 @@ double my_pow_double(double a, int b)
 
 char * format_my_isupper(char dest[], char c, int r)
 {
-    char t = "true";
-    char f = "false";
 
     clear_string(dest, 64);
     if (c <= 90 && c >= 65)
         {
-            dest = printf("isupper('%c') = %s\n", c, "true");
+            snprintf(dest, r, "isupper('%c') = %s\n", c, "true");
             return dest;
         }
            
         else
         {
-            dest = printf("isupper('%c') = %s\n", c, "false");
+            snprintf(dest, r, "isupper('%c') = %s\n", c, "false");
             return dest;
         }
     
@@ -395,19 +393,16 @@ char * format_my_isupper(char dest[], char c, int r)
 
 char * format_my_isalpha(char dest[], char c, int r)
 {
-    char t = "true";
-    char f = "false";
-
     clear_string(dest, 64);
     if (c <= 90 && c >= 65 || c <= 122 && c >= 97)
         {
-            dest = printf("isalpha('%c') = %s\n", c, "true");
+            snprintf(dest, r, "isalpha('%c') = %s\n", c, "true");
             return dest;
         }
            
         else
         {
-            dest = printf("isalpha('%c') = %s\n", c, "false");
+            snprintf(dest, r, "isalpha('%c') = %s\n", c, "false");
             return dest;
         }
 }
@@ -425,19 +420,16 @@ char * format_my_isalpha(char dest[], char c, int r)
 
 char * format_my_isalnum(char dest[], char c, int r)
 {
-    char t = "true";
-    char f = "false";
-
     clear_string(dest, 64);
     if (my_isupper(c) == 1 || my_islower(c) == 1 || my_isdigit(c) == 1)
         {
-            dest = printf("isalnum('%c') = %s\n", c, "true");
+            snprintf(dest, r, "isalnum('%c') = %s\n", c, "true");
             return dest;
         }
            
         else
         {
-            dest = printf("isalnum('%c') = %s\n", c, "false");
+            snprintf(dest, r, "isalnum('%c') = %s\n", c, "false");
             return dest;
         }
 }
@@ -458,7 +450,21 @@ char * format_my_isalnum(char dest[], char c, int r)
 char * format_my_strcmp(char dest[], int r)
 {
     clear_string(dest, 64);
-    return dest;
+
+    switch (r)
+    {
+    case -1:
+        sprintf(dest, "comparison: less\n");
+        return dest;
+    case 0:
+        sprintf(dest, "comparison: equal\n");
+        return dest;
+    case 1:
+        sprintf(dest, "comparison: greater\n");
+        return dest;
+
+    }
+    
 }
 
 
@@ -475,6 +481,19 @@ char * format_my_strcmp(char dest[], int r)
 char * format_my_strchr(char dest[], int r)
 {
     clear_string(dest, 64);
+
+    if (r >= 0)
+        {
+            sprintf(dest, "found at: %i\n", r);
+            return dest;
+        }
+           
+        else
+        {
+            sprintf(dest, "not found\n");
+            return dest;
+        }
+
     return dest;
 }
 
@@ -493,6 +512,9 @@ char * format_my_strchr(char dest[], int r)
 char * format_my_pow(char dest[], int r)
 {
     clear_string(dest, 64);
+
+    sprintf(dest, "pow = %-i\n", r);
+
     return dest;
 }
 
@@ -517,5 +539,38 @@ char * format_my_pow(char dest[], int r)
 char * format_my_pow_double(char dest[], double r)
 {
     clear_string(dest, 64);
-    return dest;
+
+    if(r < 10)
+    {
+        sprintf(dest, "pow = %012.9f\n", r);
+        return dest;
+    }
+
+    if(r < 100)
+    {
+        sprintf(dest, "pow = %012.8f\n", r);
+        return dest;
+    }
+
+    if(r < 1000)
+    {
+        sprintf(dest, "pow = %012.7f\n", r);
+        return dest;
+    }
+
+    if(r < 10000)
+    {
+        sprintf(dest, "pow = %012.6f\n", r);
+        return dest;
+    }
+
+    if(r >= 10000)
+    {
+        sprintf(dest, "pow = %012.5f\n", r);
+        return dest;
+    }
+
+    
+
+    
 }
