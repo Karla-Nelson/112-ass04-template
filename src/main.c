@@ -20,7 +20,7 @@ char * format_my_strcmp(char dest[], int r);
 char * format_my_strchr(char dest[], int r);
 char * format_my_pow(char dest[], int r);
 char * format_my_pow_double(char dest[], double r);
-
+ 
 int main(void)
 {
     char buf[64]; 
